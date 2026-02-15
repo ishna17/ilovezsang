@@ -1,116 +1,237 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day Zsang</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day Zsang</title>
 
-```
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400&display=swap');
 
-    body {
-        background-color: #fff0f3;
-        margin: 0;
-        padding: 0;
-        font-family: 'Montserrat', sans-serif;
-        color: #5c0a1a;
-        overflow-x: hidden;
-    }
+body{
+    background:#ffeef2; /* lighter pink */
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    color:#5c0a1a;
+    overflow-x:hidden;
+}
 
-    /* Floating Hearts Background */
-    .heart-bg {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        pointer-events: none;
-        z-index: -1;
-    }
+/* FLOATING HEARTS BACKGROUND */
+.heart-bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+    z-index:-1;
+}
 
-    .heart {
-        position: absolute;
-        color: #ff4d6d;
-        animation: float 6s infinite linear;
-        opacity: 0.6;
-    }
+.heart{
+    position:absolute;
+    color:#ff8fab;
+    animation:float 6s linear infinite;
+}
 
-    @keyframes float {
-        0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-    }
+@keyframes float{
+    0%{transform:translateY(100vh) rotate(0);opacity:1;}
+    100%{transform:translateY(-10vh) rotate(360deg);opacity:0;}
+}
 
-    header {
-        text-align: center;
-        padding: 60px 20px;
-        background: linear-gradient(to bottom, #ffb3c1, #fff0f3);
-    }
+/* HEADER */
+header{
+    text-align:center;
+    padding:60px 20px;
+    background:linear-gradient(#ffd6de,#ffeef2);
+}
 
-    h1 {
-        font-family: 'Dancing Script', cursive;
-        font-size: 3.5rem;
-        margin: 0;
-        color: #c9184a;
-        text-shadow: 2px 2px #ffccd5;
-    }
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size:3.5rem;
+    color:#c9184a;
+}
 
-    header p {
-        font-size: 1.1rem;
-    }
+/* BUTTON */
+.open-btn{
+    margin-top:20px;
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff8fab;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.3s;
+}
 
-    /* Letter Section */
-    .letter-container {
-        max-width: 700px;
-        margin: 50px auto;
-        background: #fff;
-        padding: 40px;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        border-left: 5px solid #ff4d6d;
-    }
+.open-btn:hover{
+    transform:scale(1.08);
+    background:#ff6b8a;
+}
 
-    .letter-text {
-        line-height: 1.8;
-        font-size: 1.1rem;
-        white-space: pre-wrap;
-    }
+/* HEART POP ANIMATION */
+.pop-heart{
+    position:fixed;
+    font-size:30px;
+    animation:pop 1s ease forwards;
+    pointer-events:none;
+}
 
-    .signature {
-        margin-top: 30px;
-        font-family: 'Dancing Script', cursive;
-        font-size: 2rem;
-        text-align: right;
-        color: #c9184a;
-    }
+@keyframes pop{
+    0%{transform:scale(0);opacity:1;}
+    60%{transform:scale(1.4);}
+    100%{transform:scale(0);opacity:0;}
+}
 
-    footer {
-        text-align: center;
-        padding: 40px;
-        font-size: 0.9rem;
-        opacity: 0.7;
-    }
+/* GALLERY */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:40px;
+}
+
+.polaroid{
+    background:white;
+    padding:15px 15px 40px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    max-width:250px;
+    transition:.4s;
+}
+
+.polaroid img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.polaroid:hover{
+    transform:scale(1.1);
+}
+
+/* LETTER (HIDDEN FIRST) */
+.letter-container{
+    max-width:700px;
+    margin:40px auto;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    border-left:5px solid #ff8fab;
+
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.letter-container.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.letter-text{
+    line-height:1.8;
+    white-space:pre-wrap;
+}
+
+.signature{
+    margin-top:30px;
+    font-family:'Dancing Script',cursive;
+    font-size:2rem;
+    text-align:right;
+    color:#c9184a;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:.7;
+}
 </style>
-```
-
 </head>
 
 <body>
 
+<!-- MUSIC (hidden) -->
+<iframe id="music"
+width="0" height="0"
+src="https://www.youtube.com/embed/9lQPxlCMEcE?enablejsapi=1&autoplay=0&loop=1&playlist=9lQPxlCMEcE"
+frameborder="0"
+allow="autoplay">
+</iframe>
+
 <div class="heart-bg" id="heart-bg"></div>
 
 <header>
-    <h1>Happy Valentine's Day, Asawa Qouh! 🩷</h1>
-    <p>To my favorite person, my nurse, and my life.</p>
+<h1>Happy Valentine's Day, Asawa Qouh! 🩷</h1>
+<p>To my favorite person, my nurse, and my life.</p>
+
+<button class="open-btn" onclick="openLetter()">Open My Letter 💌</button>
 </header>
 
-<div class="letter-container">
+<div class="gallery">
+<div class="polaroid"><img src="1000017011.jpg"></div>
+<div class="polaroid"><img src="1000017018.jpg"></div>
+<div class="polaroid"><img src="1000016998.jpg"></div>
+<div class="polaroid"><img src="1000016880.jpg"></div>
+</div>
+
+<div class="letter-container" id="letter">
 <div class="letter-text">
-Salamat sa pasensya love, alam kong unang paghinga ko palang sa mundo pambbwisit na karakas ko😆 
+Salamat sa pasensya love, alam kong unang paghinga ko palang sa mundo pambbwisit na karakas ko😆
+Thank you so much sa pagsama sa akin sa lahat lahat mommy, sa pag intindi, at sa pagtitiwala...
 
-Thank you so much sa pagsama sa akin sa lahat lahat mommy, sa pag intindi, at sa pagtitiwala sa mga panahon na wala na ako sa sarili ko 🥹 Ikaw na ang pinaka mabait na malditang nakilala ko hahaha grabe pag uunawa mo sa mga tao mahal, minsan ginagarote ko na sila sa isipan ko dahil ayoko sa lahat ay ang masaktan ka, kahit ano magagawa ko sa lahat, sa mundo, pag nagawa ka nilang kantiin.
+I love you my gwapa lami himos humot kaayo wife!
+I'm always proud of you my nurse zsang😘
+</div>
 
-Anyways sorry sa emowziyonal na bungad mahal, sa lahat nang inis ko sa buhay ko kahit papaano hinding hindi ko ipagpapalit buhay na ito dahil nariyan ka palagi para sa atin😘
+<div class="signature">
+Nagmamahal,<br>Khrishna
+</div>
+</div>
 
-I feel sorry for my shortcomings mahal ko, pinapangako kong pagbubutihin ko pagbubuo sa sarili ko araw araw dahil gusto kong mabuo araw mo sa panahon na masaya man ito o hindi🤗
+<footer>
+Forever & Always 🌹
+</footer>
 
-I love you my gwapa lami himos humot kaayo wife! I'm always proud of you my
+<script>
+/* FLOATING BACKGROUND HEARTS */
+const bg=document.getElementById('heart-bg');
+const icons=['❤','💖','💕','💗','🌸'];
+
+function createHeart(){
+    const h=document.createElement('div');
+    h.className='heart';
+    h.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+    h.style.left=Math.random()*100+'vw';
+    h.style.fontSize=(Math.random()*20+10)+'px';
+    h.style.animationDuration=(Math.random()*3+3)+'s';
+    bg.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+}
+setInterval(createHeart,300);
+
+/* OPEN LETTER + HEART POP + MUSIC */
+function openLetter(){
+    document.getElementById("letter").classList.add("show");
+
+    // play music after click (browser allowed)
+    const iframe=document.getElementById("music");
+    iframe.src="https://www.youtube.com/embed/9lQPxlCMEcE?autoplay=1&loop=1&playlist=9lQPxlCMEcE";
+
+    // popping hearts
+    for(let i=0;i<20;i++){
+        const heart=document.createElement("div");
+        heart.className="pop-heart";
+        heart.innerHTML="💖";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top=Math.random()*100+"vh";
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),1000);
+    }
+}
+</script>
+
+</body>
+</html>
