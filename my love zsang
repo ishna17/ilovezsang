@@ -1,186 +1,116 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentine's Day Zsang</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400&display=swap');
 
-        body {
-            background-color: #fff0f3;
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            color: #5c0a1a;
-            overflow-x: hidden;
-        }
+```
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400&display=swap');
 
-        /* Floating Hearts Animation */
-        .heart-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
+    body {
+        background-color: #fff0f3;
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        color: #5c0a1a;
+        overflow-x: hidden;
+    }
 
-        .heart {
-            position: absolute;
-            color: #ff4d6d;
-            animation: float 6s infinite linear;
-            opacity: 0.6;
-        }
+    /* Floating Hearts Background */
+    .heart-bg {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: -1;
+    }
 
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-        }
+    .heart {
+        position: absolute;
+        color: #ff4d6d;
+        animation: float 6s infinite linear;
+        opacity: 0.6;
+    }
 
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(to bottom, #ffb3c1, #fff0f3);
-        }
+    @keyframes float {
+        0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
 
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            margin: 0;
-            color: #c9184a;
-            text-shadow: 2px 2px #ffccd5;
-        }
+    header {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(to bottom, #ffb3c1, #fff0f3);
+    }
 
-        /* Photo Gallery */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            padding: 40px;
-        }
+    h1 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3.5rem;
+        margin: 0;
+        color: #c9184a;
+        text-shadow: 2px 2px #ffccd5;
+    }
 
-        .polaroid {
-            background: white;
-            padding: 15px 15px 40px 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transform: rotate(-2deg);
-            transition: all 0.4s ease;
-            max-width: 250px;
-            border-radius: 2px;
-        }
+    header p {
+        font-size: 1.1rem;
+    }
 
-        .polaroid img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border: 1px solid #eee;
-        }
+    /* Letter Section */
+    .letter-container {
+        max-width: 700px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        border-left: 5px solid #ff4d6d;
+    }
 
-        .polaroid:nth-child(even) { transform: rotate(3deg); }
+    .letter-text {
+        line-height: 1.8;
+        font-size: 1.1rem;
+        white-space: pre-wrap;
+    }
 
-        .polaroid:hover {
-            transform: scale(1.1) rotate(0deg);
-            box-shadow: 0 15px 30px rgba(201, 24, 74, 0.3);
-            z-index: 10;
-        }
+    .signature {
+        margin-top: 30px;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2rem;
+        text-align: right;
+        color: #c9184a;
+    }
 
-        /* Letter Section */
-        .letter-container {
-            max-width: 700px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
-            border-left: 5px solid #ff4d6d;
-        }
+    footer {
+        text-align: center;
+        padding: 40px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+</style>
+```
 
-        .letter-text {
-            line-height: 1.8;
-            font-size: 1.1rem;
-            white-space: pre-wrap;
-        }
-
-        .signature {
-            margin-top: 30px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            text-align: right;
-            color: #c9184a;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-    </style>
 </head>
+
 <body>
 
-    <div class="heart-bg" id="heart-bg"></div>
+<div class="heart-bg" id="heart-bg"></div>
 
-    <header>
-        <h1>Happy Valentine's Day, Asawa Qouh! 🩷</h1>
-        <p>To my favorite person, my nurse, and my life.</p>
-    </header>
+<header>
+    <h1>Happy Valentine's Day, Asawa Qouh! 🩷</h1>
+    <p>To my favorite person, my nurse, and my life.</p>
+</header>
 
-    <div class="gallery">
-        <div class="polaroid">
-            <img src="1000017011.jpg" alt="Under the lights">
-        </div>
-        <div class="polaroid">
-            <img src="1000017018.jpg" alt="Sunset Kiss">
-        </div>
-        <div class="polaroid">
-            <img src="1000016998.jpg" alt="Golf Course Memories">
-        </div>
-        <div class="polaroid">
-            <img src="1000016880.jpg" alt="Mountain View">
-        </div>
-    </div>
-
-    <div class="letter-container">
-        <div class="letter-text">
+<div class="letter-container">
+<div class="letter-text">
 Salamat sa pasensya love, alam kong unang paghinga ko palang sa mundo pambbwisit na karakas ko😆 
 
-Thank you so much sa pagsama sa akin sa lahat lahat mommy, sa pag intindi, at sa pagtitiwala sa mga panahon na wala na ako sa sarili ko 🥹 Ikaw na ang pinaka mabait na malditang nakilala ko hahaha grabe pag uunawa mo sa mga tao mahal, minsan ginagarote ko na sila sa isipan ko dahil ayoko sa lahat ay ang masaktan ka, kahit ano magagawa ko sa lahat, sa mundo, pag nagawa ka nilang kantiin. 
+Thank you so much sa pagsama sa akin sa lahat lahat mommy, sa pag intindi, at sa pagtitiwala sa mga panahon na wala na ako sa sarili ko 🥹 Ikaw na ang pinaka mabait na malditang nakilala ko hahaha grabe pag uunawa mo sa mga tao mahal, minsan ginagarote ko na sila sa isipan ko dahil ayoko sa lahat ay ang masaktan ka, kahit ano magagawa ko sa lahat, sa mundo, pag nagawa ka nilang kantiin.
 
-Anyways sorry sa emowziyonal na bungad mahal, sa lahat nang inis ko sa buhay ko kahit papaano hinding hindi ko ipagpapalit buhay na ito dahil nariyan ka palagi para sa atin😘 
+Anyways sorry sa emowziyonal na bungad mahal, sa lahat nang inis ko sa buhay ko kahit papaano hinding hindi ko ipagpapalit buhay na ito dahil nariyan ka palagi para sa atin😘
 
-I feel sorry for my shortcomings mahal ko, pinapangako kong pagbubutihin ko pagbubuo sa sarili ko araw araw dahil gusto kong mabuo araw mo sa panahon na masaya man ito o hindi🤗 
+I feel sorry for my shortcomings mahal ko, pinapangako kong pagbubutihin ko pagbubuo sa sarili ko araw araw dahil gusto kong mabuo araw mo sa panahon na masaya man ito o hindi🤗
 
-I love you my gwapa lami himos humot kaayo wife! I'm always proud of you my nurse zsang😘 thank you for being extraordinary you my baby🩷
-        </div>
-        <div class="signature">
-            Nagmamahal,<br>Khrishna
-        </div>
-    </div>
-
-    <footer>
-        Forever & Always 🌹
-    </footer>
-
-    <script>
-        // Create random floating hearts
-        const bg = document.getElementById('heart-bg');
-        const heartIcons = ['❤', '💖', '💕', '💗', '🌸'];
-        
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
-            bg.appendChild(heart);
-            
-            setTimeout(() => { heart.remove(); }, 6000);
-        }
-
-        setInterval(createHeart, 300);
-    </script>
-</body>
-</html>
+I love you my gwapa lami himos humot kaayo wife! I'm always proud of you my
